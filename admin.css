@@ -1,0 +1,186 @@
+/* iPhone 14 Pro Max - 17 */
+
+position: relative;
+width: 430px;
+height: 932px;
+
+background: #FFFFFF;
+
+
+/* Ellipse 2 */
+
+position: absolute;
+width: 648px;
+height: 322px;
+left: -109px;
+top: -77px;
+
+background: #005690;
+
+
+/* image 2 */
+
+position: absolute;
+width: 34px;
+height: 34px;
+left: 20px;
+top: 19px;
+
+background: url(image.png);
+
+
+/* home */
+
+position: absolute;
+width: 115px;
+height: 48px;
+left: 20px;
+top: 126px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 48px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+
+
+/* hello jhon, */
+
+position: absolute;
+width: 159px;
+height: 36px;
+left: 20px;
+top: 62px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+
+
+/* Rectangle 15 */
+
+position: absolute;
+width: 364px;
+height: 135px;
+left: 29px;
+top: 340px;
+
+background: #D9D9D9;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 12px;
+
+
+/* Rectangle 16 */
+
+position: absolute;
+width: 364px;
+height: 135px;
+left: 29px;
+top: 594px;
+
+background: #D9D9D9;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 12px;
+
+
+/* manage rooms */
+
+position: absolute;
+width: 262px;
+height: 30px;
+left: 84px;
+top: 641px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+text-transform: capitalize;
+
+color: #000000;
+
+
+
+/* manage employee */
+
+position: absolute;
+width: 260px;
+height: 36px;
+left: 68px;
+top: 387px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+text-transform: capitalize;
+
+color: #000000;
+
+
+
+/* image 13 */
+
+position: absolute;
+width: 34px;
+height: 34px;
+left: 20px;
+top: 875px;
+
+background: url(image.png);
+
+
+/* image 13 */
+
+position: absolute;
+width: 34px;
+height: 34px;
+left: 198px;
+top: 875px;
+
+background: url(image.png);
+
+
+/* image 13 */
+
+position: absolute;
+width: 34px;
+height: 34px;
+left: 376px;
+top: 875px;
+
+background: url(image.png);
+
+
+/* Rectangle 127 */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 345px;
+top: 403px;
+
+background: url(image.png);
+
+
+/* Rectangle 128 */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 345px;
+top: 656px;
+
+background: url(image.png);

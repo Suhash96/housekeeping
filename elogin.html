@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In | Housekeeping Management System</title>
+	<link rel="stylesheet" type="text/css" href="stylelogin.css">
+	<style>
+	.container {
+    background-color:#ff00c3;
+	font-size: 40px;
+	}
+	body{
+		background-color: aliceblue;
+	}
+	header h1 {
+    display: inline;
+    font-family: inter;
+    font-weight: 400;
+    font-size: 50px;
+    float: left;
+    margin-top: 0px;
+    margin-right: 10px;
+}
+header {
+    background: #005690;
+    color: white;
+    padding: 8px 20px 6px 40px;
+    height: 50px;
+}
+		.divider {
+    background-color: #8BCA02;
+    height: 5px;
+}	
+	header {
+    background: #005690;
+    color: white;
+    padding: 8px 19px 8px 41px;
+    height: 50px;
+    margin-top: 0px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    font-family:inter;
+}
+.loginbox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #8bca02;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+
+	</style>
+
+
+</head>
+<body>
+	<header>
+		<nav>
+			<h1class="container">Housekeeping Management System </h1>
+			<ul id="navli">
+				<li><a class="homeblack" href="index.html">HOME</a></li>
+				<li><a class="homered" href="elogin.html">Employee Login</a></li>
+				<li><a class="homeblack" href="alogin.html">Admin Login</a></li>
+				
+			</ul>
+		</nav>
+	</header>
+	<div class="divider"></div>
+
+	<div class="loginbox">
+    <img src="assets/avatar.png" class="avatar">
+        <h1>Login Here</h1>
+        <form action="process/eprocess.php" method="POST">
+            <p>Email</p>
+            <input type="text" name="mailuid" placeholder="Enter Email Address" required="required">
+            <p>Password</p>
+            <input type="password" name="pwd" placeholder="Enter Password" required="required">
+            <input type="submit" name="login-submit" value="Login">
+           
+        </form>
+        
+    </div>
+			
+			
+</body>
+</html>
