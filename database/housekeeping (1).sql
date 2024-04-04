@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 04:20 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 04, 2024 at 12:17 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,17 +44,18 @@ CREATE TABLE `assets` (
 --
 
 INSERT INTO `assets` (`asset_name`, `request_id`, `bio_id`, `asset_history`, `asset_quantity`, `asset_id`, `requested_quantity`, `alocated_qty`, `utilised_qty`) VALUES
-('mop', 0, 0, 0, 290, 1, 0, 0, 0),
+('mop', 0, 0, 0, 200, 1, 0, 0, 0),
 ('bucket', 0, 0, 0, 300, 2, 0, 0, 0),
-('scrub brush', 0, 0, 0, 300, 3, 0, 0, 0),
+('scrub brush', 0, 0, 0, 2, 3, 0, 0, 0),
 ('broom', 0, 0, 0, 200, 4, 0, 0, 0),
 ('toilet brush', 0, 0, 0, 300, 5, 0, 0, 0),
 ('dust pan', 0, 0, 0, 300, 6, 0, 0, 0),
 ('gloves', 0, 0, 0, 300, 7, 0, 0, 0),
-('acid', 0, 0, 0, 300, 8, 0, 0, 0),
+('acid', 0, 0, 0, 299, 8, 0, 0, 0),
 ('phenol', 0, 0, 0, 300, 9, 0, 0, 0),
 ('vacuum', 0, 0, 0, 300, 10, 0, 0, 0),
-('cell', 0, 0, 0, 300, 11, 0, 0, 0);
+('cell', 0, 0, 0, 300, 11, 0, 0, 0),
+('kk', 0, 0, 0, 500, 13, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,12 @@ INSERT INTO `asset_history` (`asset_id`, `asset_name`, `bio_id`, `firstName`, `a
 (10, 'cell', 192011035, 'sony', 1, '2023-11-17'),
 (11, 'cell', 192011035, 'sony', 1, '2023-11-17'),
 (4, 'mop', 192011035, 'sony', 100, '2023-12-11'),
-(1, 'mop', 192011035, 'sony', 10, '2023-12-11');
+(1, 'mop', 192011035, 'sony', 10, '2023-12-11'),
+(3, 'scrub brush', 192011250, 'raju', 200, '2024-02-19'),
+(1, 'mop', 192011250, 'raju', 290, '2024-03-19'),
+(3, 'acid', 192011250, 'raju', 22, '2024-04-02'),
+(8, 'acid', 192011250, 'raju', 1, '2024-04-02'),
+(3, 'scrub brush', 192011250, 'raju', 76, '2024-04-02');
 
 -- --------------------------------------------------------
 
@@ -222,7 +228,8 @@ INSERT INTO `building` (`buildingname`, `building_id`, `floor_no`, `room_no`, `r
 ('Sail', 0, 1, 0, ''),
 ('Sail 2', 0, 1, 109, 'Laboratory'),
 ('see', 0, 1, 101, 'Laboratory'),
-('saw', 0, 9, 901, 'Class Room');
+('saw', 0, 9, 901, 'Class Room'),
+('hall 4', 342, 4, 121, 'staff room');
 
 -- --------------------------------------------------------
 
@@ -257,9 +264,12 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`job_id`, `bio_id`, `from_date`, `to_date`, `floor_no`, `supervisor`, `assigned_classroom`, `assigned_classroom2`, `assigned_classroom3`, `assigned_classroom4`, `assigned_classroom5`, `assigned_classroom6`, `assigned_classroom7`, `assigned_classroom8`, `assigned_classroom9`, `user_info_id`, `worker_name`, `image`, `status`) VALUES
-(308, 0, '2023-11-14', '2023-11-23', 2, '192011114', '', '', '', '', '', '', '', '', '', NULL, '', 'uploads/65707ebb38390_527120.jpg', ''),
-(310, 0, '2023-11-26', '2023-12-01', 5, '192011114', '', '', '', '', '', '', '', '', '', NULL, '', 'uploads/657071cd77470_527120.jpg', ''),
-(312, 0, '2023-12-19', '2023-12-16', 2, '192011035', '', '', '', '', '', '', '', '', '', NULL, '', 'uploads/6573e913c162a_1.jpg', 'completed');
+(313, 0, '2024-02-20', '2024-02-29', 1, '192011250', '', '', '', '', '', '', '', '', '', NULL, '', '', 'completed'),
+(314, 0, '2024-02-19', '2024-02-21', 1, '192011250', '', '', '', '', '', '', '', '', '', NULL, '', '', 'completed'),
+(315, 0, '2024-02-20', '2024-02-28', 1, '192011250', 'pattan', '', '', '', '', '', '', '', '', NULL, '', '', 'completed'),
+(316, 0, '2024-03-01', '2024-03-13', 7, '192011250', 'nitiesh, wassy', '', '', '', 'roshan', '', '', '', '', NULL, '', '', ''),
+(317, 0, '2024-04-02', '2024-04-03', 3, '192011250', '', '', '', '', '', '', '', '', '', NULL, '', '', ''),
+(318, 0, '2024-04-03', '2024-04-18', 2, '192011250', 'karthick', '', '', '', '', '', '', '', '', NULL, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -272,6 +282,13 @@ CREATE TABLE `requestasset` (
   `bio_id` int(11) NOT NULL,
   `request_quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `requestasset`
+--
+
+INSERT INTO `requestasset` (`asset_id`, `bio_id`, `request_quantity`) VALUES
+(4, 192011250, 2);
 
 -- --------------------------------------------------------
 
@@ -316,23 +333,21 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`bio_id`, `firstName`, `lastName`, `email`, `qualification`, `Designation`, `Supervisor`, `contact`, `password`, `birthday`, `busy`) VALUES
-(19201123, 'nitiesh', 'n', 'nitiesh@gmail.com', 'be', 'worker', '192011035', '9862737384', 'nitiesh123', '2023-09-14', 0),
-(19201125, 'wassy', 'n', 'wassy@gmail.com', 'be', 'worker', '192011035', '9862737389', 'wassy123', '2023-09-14', 0),
-(123456789, 'bobby', 'b', 'bobby123@gmail.com', 'be', 'worker', '192011035', '1122334455', '123123', '0000-00-00', 0),
-(191919191, 'sanjay', 's', 'sanjay@gmail.com', 'be', 'storekeeper', '', '123456788', 'sanjay123', '2023-09-12', 0),
-(192011011, 'karthick', 'k', 'karthick@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'karthick', '2023-11-01', 0),
-(192011021, 'roshan', 'r', 'roshan123@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'roshan123', '2023-11-05', 0),
-(192011022, 'shaym', 's', 'shyam123@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'iuhawdl', '2023-11-14', 0),
-(192011023, 'suresh', 's', 'suresh123@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'sdf', '2023-11-06', 0),
-(192011024, 'basheer', 'b', 'basheer@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'sd', '2023-11-06', 0),
-(192011025, 'khan', 'k', 'khan@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'sd', '2023-11-14', 0),
-(192011030, 'nani', 'n', 'nani123@gmail.com', 'be', 'manager', '', '1234568789', 'nani123', '2023-11-13', 0),
-(192011035, 'sony', 's', 'sony@gmail.com', 'be', 'supervisor', '', '123455556', 'sony123', '2023-10-16', 0),
-(192011036, 'bharath', 'b', 'bharath123@gmail.com', 'be', 'admin', '', '1234567899', 'bharath123', '2023-09-12', 0),
-(192011055, 'krish', 'k', 'krish123@gmail.com', 'be', 'Worker', '192011035', '1234567890', 'krish', '2023-12-05', 0),
+(192011011, 'karthick', 'k', 'karthick@gmail.com', '10', 'student', '192011250', '1234567890', 'karthick', '2023-11-01', 1),
+(192011021, 'roshan', 'r', 'roshan123@gmail.com', 'be', 'Worker', '192011250', '1234567890', 'roshan123', '2023-11-05', 1),
+(192011022, 'shaym', 's', 'shyam123@gmail.com', 'be', 'Worker', '192011114', '1234567890', 'iuhawdl', '2023-11-14', 0),
+(192011023, 'suresh', 's', 'suresh123@gmail.com', 'be', 'Worker', '192011114', '1234567890', 'sdf', '2023-11-06', 0),
+(192011024, 'basheer', 'b', 'basheer@gmail.com', 'be', 'Worker', '192011114', '1234567890', 'sd', '2023-11-06', 0),
+(192011025, 'khan', 'k', 'khan@gmail.com', 'be', 'Worker', '192011114', '1234567890', 'sd', '2023-11-14', 0),
+(192011055, 'krish', 'k', 'krish123@gmail.com', 'be', 'Worker', '192011250', '1234567890', 'krish', '2023-12-05', 0),
 (192011111, 'kamesh', 'b', 'kamesh123@gmail.com', 'be', 'Worker', '192011035', '1234567890', '1234566', '2023-11-22', 0),
-(192011112, 'pattan', 'k', 'pattan@gmail.com', 'be', 'Worker', '192011114', '1234567899', 'pattan1', '2023-12-07', 0),
-(192011114, 'karan', 'k', 'karan@gmail.com', 'be', 'supervisor', '', '123245555', 'karan123', '2023-10-27', 0);
+(192011112, 'pattan', 'k', 'pattan@gmail.com', 'be', 'Worker', '192011114', '1234567899', 'pattan1', '2023-12-07', 1),
+(192011250, 'raju', 's', 'raju@gmail.com', 'be', 'supervisor', '', '123455556', 'raju123', '2023-10-16', 0),
+(192011251, 'suhash', 'b', 'suhash123@gmail.com', 'be', 'admin', '', '1234567899', 'suhash123', '2023-09-12', 0),
+(192011252, 'jyo', 'n', 'jyo123@gmail.com', 'be', 'manager', '', '1234568789', 'jyo123', '2023-11-13', 0),
+(192011263, 'rakesh', 's', 'rakesh@gmail.com', 'be', 'storekeeper', '', '123456788', 'rakesh123', '2023-09-12', 0),
+(564347832, 'thahur', 'Reddy', 'tt434330@gmail.com', '12', 'Worker', '192011114', '9640482517', '5556', '2024-03-14', 0),
+(963258741, 'VR Tharun', 'Reddy', 'tt434330@gmail.com', 'ss', 'Worker', '123456789', '9640482517', '123', '2024-04-03', 0);
 
 --
 -- Indexes for dumped tables
@@ -371,7 +386,7 @@ ALTER TABLE `assets`
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=313;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
 
 --
 -- Constraints for dumped tables
